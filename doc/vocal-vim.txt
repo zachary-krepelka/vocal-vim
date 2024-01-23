@@ -1,0 +1,213 @@
+*vocal-vim.txt*	An operator that talks to you
+*vocal-vim*
+
+ __   __            _  __   ___        ~
+ \ \ / /__  __ __ _| | \ \ / (_)_ __   ~
+  \ V / _ \/ _/ _` | |  \ V /| | '  \  ~
+   \_/\___/\__\__,_|_|   \_/ |_|_|_|_| ~
+
+Author:   Zachary Krepelka
+Date:     Monday, January 22nd, 2024
+
+Origin:   https://github.com/zachary-krepelka/vocal-vim
+
+================================================================================
+
+TABLE OF CONTENTS
+
+1. Introduction ...................................... |vocal-vim-intro|
+2. Installation ...................................... |vocal-vim-install|
+3. Usage ............................................. |vocal-vim-usage|
+4. Example ........................................... |vocal-vim-example|
+5. Customization ..................................... |vocal-vim-customization|
+6. Remarks ........................................... |vocal-vim-remarks|
+
+================================================================================
+
+1. INTRODUCTION                                                *vocal-vim-intro*
+
+Vocal Vim is a plugin that integrates speech synthesis into the Vim text editor.
+It introduces an operator that accepts the full range of Vim motions -- an
+operator that talks to you!  Some potential use cases include
+
+	- checking the pronunciation of a word
+	- proofreading via listening
+	- just to have some fun
+
+I have found my plugin useful for reading Vim's help.
+
+================================================================================
+
+2. INSTALLATION                                              *vocal-vim-install*
+
+Use your favorite plugin manager.
+
+A speech synthesizer is also required.  I have chosen `eSpeak` as the default.
+
+	https://en.wikipedia.org/wiki/ESpeak
+
+If you're on Ubuntu, you might try this. >
+
+	sudo apt-get install espeak
+
+================================================================================
+
+3. USAGE                                                       *vocal-vim-usage*
+
+This plugin provides one operator.
+The default keybinding is `gs`.
+
+                                                                  *vocal-vim-gs*
+	gs{motion}
+
+			Vocalizes the text that {motion} moves over.
+			A [count] is also viable, as in [count]gs{motion}.
+
+	{Visual}gs
+
+			Vocalizes the highlighted text.
+
+There is also a command and a function.
+
+                                                                        *:Speak*
+	:Speak {string}
+
+			Speak the specified string.
+			Quotes are not required.
+
+                                                                       *Speak()*
+	Speak({string})
+
+			Speaks the string passed as an argument.
+
+3.1 Mnemonics~
+
+If you're anything like me, you appreciate keybindings with meaningful
+designations.  Then let us choose a meaning for ours.  The word 'Go' can be used
+as an imperative verb, e.g., 'Go and buy yourself a new dress.'  We can employ
+this usage of the word to devise a mnemonic for our new operator.
+
+	`gs`     --->   `G`o and `S`peak!
+
+	`gsw`    --->   `G`o and `S`peak the `W`ord!
+
+	`gss`    --->   `G`o `S`peak `S`wiftly
+
+	`gsip`   --->   `G`o `S`peak `I`nside `P`aragraph
+
+You may prefer the word `say` to `speak` -- whatever floats your boat.
+
+================================================================================
+
+4. EXAMPLE                                                   *vocal-vim-example*
+
+The best way to experience this plugin is to use it yourself.
+Go ahead and try it out on Shakespeare's 19th Sonnet.
+Turn up your volume! >
+
+	Devouring Time, blunt thou the lion's paws,
+	And make the earth devour her own sweet brood;
+	Pluck the keen teeth from the fierce tiger's jaws,
+	And burn the long-liv'd Phoenix in her blood;
+
+	Make glad and sorry seasons as thou fleets,
+	And do whate'er thou wilt, swift-footed Time,
+	To the wide world and all her fading sweets;
+	But I forbid thee one more heinous crime:
+
+	O, carve not with thy hours my love's fair brow,
+	Nor draw no lines there with thine antique pen!
+	Him in thy course untainted do allow
+	For beauty's pattern to succeeding men.
+
+	Yet do thy worst, old Time! Despite thy wrong
+	My love shall in my verse ever live young.
+
+Here are some things you could try:
+
+	- `gss` to vocalize the current line
+
+	- `gsip` to vocalize the stanza your cursor is in.
+
+	- `gs}` to vocalize one stanza at a time.
+
+	- `[n]gsw` to speak the next `n` words.
+
+	- `gsf[!?.]` to speak a full sentence.
+
+	- Pretty much anything else you can imagine.
+
+================================================================================
+
+5. CUSTOMIZATION                                       *vocal-vim-customization*
+
+Customization is achieved by setting variables in your |.vimrc| file.
+
+*g:speaker*	(default: espeak)
+
+	This variable specifies the external speech synthesizer.  It is the
+	external command that this plugin calls on.  If you would like to
+	explore your options, here's a good Google search query. >
+
+		command-line text-to-speech
+<
+	Users of macOS should prefer this. >
+
+		let g:speaker = 'say'
+
+*g:speaker_instructions*	(default: '')
+
+	This variable specifies the arguments passed to the external speech
+	synthesizer.  These command-line options facilitate customization.  For
+	example, if you wanted a female voice using espeak, try this. >
+
+		let g:speaker_instructions = '-ven-us+f2'
+
+*g:speaker_notes*	(default: 0)
+
+	A flag that, when enabled, tells the plugin to echo the spoken text. >
+
+		let g:speaker_notes = 1
+
+================================================================================
+
+6. REMARKS                                                   *vocal-vim-remarks*
+
+6.1 This plugin overwrites a default operator.~
+
+Be warned that our default keybinding overwrites Vim's built-in *gs* operator,
+but don't worry; you won't be using it anyway.  It quite literally does nothing.
+Read the help if you don't believe me.
+
+6.2 This plugin has dependencies.~
+
+If you read the source code, you will see that I make use of bashisms in an
+external system call.  This gives rise to a dependency.  I will think about
+making my plugin portable when I have some spare time on my hands.
+
+6.3 An edge case with argument passing~
+
+You should not pass the words 'char', 'line', or 'block' verbatim to the
+provided command and function; otherwise, undefined behavior will ensue.  This
+problem arises because I violate the single responsibility principle of computer
+programming.  A work-around is quoting the words with an additional space. >
+
+	:Speak "block "
+
+6.4 Credits and Inspirations~
+
+I was inspired to write this plugin because I got sick and tired of Googling
+word pronunciations.  At least, that's what gave me the idea.  I started out
+with a simple mapping that would pronounce the word under the cursor, but I
+quickly wanted something more dynamic.
+
+Two resources were particularly helpful in writing this plugin.
+
+	-  Vim's |map-operator| help page.
+
+	- Chapter 29 of Igor Iriantio's 'Learn Vim the Smart Way'
+
+		https://github.com/iggredible/Learn-Vim
+
+================================================================================
+vim:tw=80:ts=8:ft=help:
