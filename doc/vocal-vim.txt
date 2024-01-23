@@ -175,7 +175,7 @@ Customization is achieved by setting variables in your |.vimrc| file.
 
 6.1 This plugin overwrites a default operator.~
 
-Be warned that our default keybinding overwrites Vim's built-in *gs* operator,
+Be warned that our default keybinding overwrites Vim's built-in |gs| operator,
 but don't worry; you won't be using it anyway.  It quite literally does nothing.
 Read the help if you don't believe me.
 
