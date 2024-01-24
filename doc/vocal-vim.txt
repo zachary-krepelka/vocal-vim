@@ -24,7 +24,7 @@ TABLE OF CONTENTS
 
 ================================================================================
 
-1. INTRODUCTION                                                *vocal-vim-intro*
+INTRODUCTION                                                   *vocal-vim-intro*
 
 Vocal Vim is a plugin that integrates speech synthesis into the Vim text editor.
 It introduces an operator that accepts the full range of Vim motions -- an
@@ -38,7 +38,7 @@ I have found my plugin useful for reading Vim's help.
 
 ================================================================================
 
-2. INSTALLATION                                              *vocal-vim-install*
+INSTALLATION                                                 *vocal-vim-install*
 
 Use your favorite plugin manager.
 
@@ -52,7 +52,7 @@ If you're on Ubuntu, you might try this. >
 
 ================================================================================
 
-3. USAGE                                                       *vocal-vim-usage*
+USAGE                                                          *vocal-vim-usage*
 
 This plugin provides one operator.
 The default keybinding is `gs`.
@@ -99,7 +99,7 @@ You may prefer the word `say` to `speak` -- whatever floats your boat.
 
 ================================================================================
 
-4. EXAMPLE                                                   *vocal-vim-example*
+EXAMPLE                                                      *vocal-vim-example*
 
 The best way to experience this plugin is to use it yourself.
 Go ahead and try it out on Shakespeare's 19th Sonnet.
@@ -139,7 +139,7 @@ Here are some things you could try:
 
 ================================================================================
 
-5. CUSTOMIZATION                                       *vocal-vim-customization*
+CUSTOMIZATION                                          *vocal-vim-customization*
 
 Customization is achieved by setting variables in your |.vimrc| file.
 
@@ -171,7 +171,7 @@ Customization is achieved by setting variables in your |.vimrc| file.
 
 ================================================================================
 
-6. REMARKS                                                   *vocal-vim-remarks*
+REMARKS                                                      *vocal-vim-remarks*
 
 6.1 This plugin overwrites a default operator.~
 
