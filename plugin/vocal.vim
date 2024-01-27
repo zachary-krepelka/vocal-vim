@@ -1,16 +1,8 @@
 " FILENAME: vocal.vim
 " AUTHOR: Zachary Krepelka
 " DATE: Saturday, January 20th, 2024
-
-"==============================================================================
-"
-" Vocal Vim is a plugin that integrates speech synthesis into the Vim text
-" editor. It introduces an operator that accepts the full range of Vim motions
-" -- an operator that talks to you! Full details are provided in the help file.
-"
-"	https://github.com/zachary-krepelka/vocal-vim
-"
-"==============================================================================
+" ORIGIN: https://github.com/zachary-krepelka/vocal-vim
+" UPDATED: Friday, January 26th, 2024   10:41 PM
 
 if exists("g:loaded_vocal_vim")
 

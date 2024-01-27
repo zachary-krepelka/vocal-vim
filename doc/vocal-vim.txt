@@ -24,7 +24,7 @@ TABLE OF CONTENTS
 
 ================================================================================
 
-INTRODUCTION                                                   *vocal-vim-intro*
+INTRODUCTION - 1                                               *vocal-vim-intro*
 
 Vocal Vim is a plugin that integrates speech synthesis into the Vim text editor.
 It introduces an operator that accepts the full range of Vim motions -- an
@@ -38,7 +38,7 @@ I have found my plugin useful for reading Vim's help.
 
 ================================================================================
 
-INSTALLATION                                                 *vocal-vim-install*
+INSTALLATION - 2                                             *vocal-vim-install*
 
 Use your favorite plugin manager.
 
@@ -52,38 +52,45 @@ If you're on Ubuntu, you might try this. >
 
 ================================================================================
 
-USAGE                                                          *vocal-vim-usage*
+USAGE - 3                                                      *vocal-vim-usage*
+
+3.1 Operators~
 
 This plugin provides one operator.
-The default keybinding is `gs`.
 
                                                                   *vocal-vim-gs*
 	gs{motion}
 
-			Vocalizes the text that {motion} moves over.
-			A [count] is also viable, as in [count]gs{motion}.
+			Vocalize the text moved over by {motion}.
+			A [count] is also viable.
 
 	{Visual}gs
 
-			Vocalizes the highlighted text.
+			Vocalize the highlighted text.
 
-There is also a command and a function.
+3.2 Commands~
+
+This plugin provides one command.
 
                                                                         *:Speak*
 	:Speak {string}
 
-			Speak the specified string.
+			Speak the string passed as an argument.
 			Quotes are not required.
 
+3.3 Functions~
+
+This plugin provides one function.
+
                                                                        *Speak()*
+
 	Speak({string})
 
 			Speaks the string passed as an argument.
 
-3.1 Mnemonics~
+3.4 Mnemonics~
 
-If you're anything like me, you appreciate keybindings with meaningful
-designations.  Then let us choose a meaning for ours.  The word 'Go' can be used
+Let us give our keybinding a meaningful designation.  The word 'Go' can be used
 as an imperative verb, e.g., 'Go and buy yourself a new dress.'  We can employ
 this usage of the word to devise a mnemonic for our new operator.
 
@@ -99,7 +106,7 @@ You may prefer the word `say` to `speak` -- whatever floats your boat.
 
 ================================================================================
 
-EXAMPLE                                                      *vocal-vim-example*
+EXAMPLE - 4                                                  *vocal-vim-example*
 
 The best way to experience this plugin is to use it yourself.
 Go ahead and try it out on Shakespeare's 19th Sonnet.
@@ -127,9 +134,9 @@ Here are some things you could try:
 
 	- `gss` to vocalize the current line
 
-	- `gsip` to vocalize the stanza your cursor is in.
+	- `gsip` to vocalize the stanza.
 
-	- `gs}` to vocalize one stanza at a time.
+	- `gs}` to vocalize stanzas in succession.
 
 	- `[n]gsw` to speak the next `n` words.
 
@@ -139,7 +146,7 @@ Here are some things you could try:
 
 ================================================================================
 
-CUSTOMIZATION                                          *vocal-vim-customization*
+CUSTOMIZATION - 5                                      *vocal-vim-customization*
 
 Customization is achieved by setting variables in your |.vimrc| file.
 
@@ -171,7 +178,7 @@ Customization is achieved by setting variables in your |.vimrc| file.
 
 ================================================================================
 
-REMARKS                                                      *vocal-vim-remarks*
+REMARKS - 6                                                  *vocal-vim-remarks*
 
 6.1 This plugin overwrites a default operator.~
 
