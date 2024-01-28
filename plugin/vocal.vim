@@ -2,7 +2,9 @@
 " AUTHOR: Zachary Krepelka
 " DATE: Saturday, January 20th, 2024
 " ORIGIN: https://github.com/zachary-krepelka/vocal-vim
-" UPDATED: Friday, January 26th, 2024   10:41 PM
+" UPDATED: Saturday, January 27th, 2024 at 9:15 PM
+
+" Variables {{{1
 
 if exists("g:loaded_vocal_vim")
 
@@ -24,7 +26,7 @@ endif
 if !exists('g:speaker_notes')
 
 	" When this variable is flagged,
-	" display the spoken text.
+	" echo the spoken text.
 
 	let g:speaker_notes = 0
 
@@ -38,6 +40,8 @@ if !exists('g:speaker_instructions')
 	let g:speaker_instructions = ''
 
 endif
+
+" Functions {{{1
 
 function! Speak(type = '') abort
 
@@ -126,7 +130,20 @@ function! Speak(type = '') abort
 
 endfunction
 
+" Commands {{{1
+
+command -nargs=1 Speak :call Speak(<q-args>)
+
+" Mappings {{{1
+
 nnoremap <expr> gs  Speak()
 xnoremap <expr> gs  Speak()
 nnoremap <expr> gss Speak() .. '_'
-command -nargs=1 Speak :call Speak(<q-args>)
+
+" Menus {{{1
+
+if has("gui_running") && has("menu") && &go =~# 'm'
+
+	amenu <silent> &Plugin.Vocal\ Vim.&Help :tab help vocal-vim<CR>
+
+endif
