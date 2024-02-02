@@ -2,7 +2,9 @@
 	FILENAME: README.md
 	AUTHOR: Zachary Krepelka
 	DATE: Sunday, January 21st, 2024
-	ORIGIN: https://github.com/zachary-krepelka/vocal-vim
+	ORIGIN: https://github.com/zachary-krepelka/vocal-vim.git
+	DESCRIPTION: An operator that talks to you
+	UPDATED: Friday, February 2nd, 2024 at 1:00 PM
 -->
 
 # vocal.vim

@@ -1,7 +1,8 @@
 " FILENAME: vocal.vim
 " AUTHOR: Zachary Krepelka
 " DATE: Saturday, January 20th, 2024
-" ORIGIN: https://github.com/zachary-krepelka/vocal-vim
+" ORIGIN: https://github.com/zachary-krepelka/vocal-vim.git
+" DESCRIPTION: An operator that talks to you
 " UPDATED: Saturday, January 27th, 2024 at 9:15 PM
 
 " Variables {{{1
