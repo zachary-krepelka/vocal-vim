@@ -32,7 +32,7 @@ operator that talks to you!  Some potential use cases include
 
 	- checking the pronunciation of a word
 	- proofreading via listening
-	- just to have some fun
+	- flexing your vim-fu
 
 I have found my plugin useful for reading Vim's help.
 
@@ -40,15 +40,51 @@ I have found my plugin useful for reading Vim's help.
 
 INSTALLATION      2                                     *vocal-vim-install* {{{1
 
-Use your favorite plugin manager.
+Use your favorite plugin manager, but first ensure to satisfy the dependencies.
 
-A speech synthesizer is also required.  I have chosen `eSpeak` as the default.
+2.1 Dependencies~
 
-	https://en.wikipedia.org/wiki/ESpeak
+A speech synthesizer is required.  It should be accessible as a command-line
+application accepting textual input as its first and only positional argument.
+I have chosen `eSpeak` as the default, since it is a light-weight and well-known
+command-line utility.
 
-If you're on Ubuntu, you might try this. >
+	eSpeak is a free and open-source, cross-platform,
+	compact, software speech synthesizer
+
+		-- https://en.wikipedia.org/wiki/ESpeak
+
+If you're on a Debian-based Linux distro, you can install `eSpeak` by typing >
 
 	sudo apt-get install espeak
+
+If sSpeak is available, then no further configuration is required. To use a
+different synthesizer, you must define a variable in your |vimrc| to instruct
+the plugin to call on a different program.  See |vocal-vim-customization|.
+
+2.2 Recommendations~
+
+Espeak makes a good default, but it sounds kind of choppy.  For a smoother and
+more modern experience, my personal recommendation is to use `Google Speech`.
+
+	Google Speech is a simple multiplatform command line tool to
+	read text using Google Translate TTS (Text To Speech) API.
+
+		-- https://pypi.org/project/google-speech
+
+Installation instructions can be found here.
+
+	https://www.baeldung.com/linux/command-line-text-to-speech
+
+After installing, add these to your |vimrc|:  >
+
+	let g:speaker = 'google_speech'
+	let g:speaker_instructions = '-l en'
+
+2.3 Compatibility~
+
+Currently, this plugin is only compatible with systems using a POSIX compliant
+command-line shell, such as bash. The expectation is that you're running Linux.
 
 ================================================================================
 
@@ -180,7 +216,9 @@ REMARKS           6                                     *vocal-vim-remarks* {{{1
 
 Be warned that our default keybinding overwrites Vim's built-in |gs| operator,
 but don't worry; you won't be using it anyway.  It quite literally does nothing.
-Read the help if you don't believe me.
+Read the help if you don't believe me.  On a stack exchange post, one Vim user
+remarks that he has not used `gs` for its default purpose after 15 years of
+using vim.  https://vi.stackexchange.com/a/12816
 
 6.2 This plugin has dependencies.~
 
@@ -200,7 +238,7 @@ programming.  A work-around is quoting the words with an additional space. >
 6.4 Credits and Inspirations~
 
 I often find myself looking up the pronunciation of words on Google.  I was
-inspired to write this plugin on that account. I wanted the convience of not
+inspired to write this plugin on that account. I wanted the convenience of not
 having to leave my terminal.  I started out with a simple mapping that would
 pronounce the word under the cursor, but I quickly wanted something more
 dynamic.
@@ -214,5 +252,5 @@ Two resources were particularly helpful in writing this plugin.
 		https://github.com/iggredible/Learn-Vim
 
 ================================================================================
-UPDATED: Friday, February 2nd, 2024 at 1:07 PM
+UPDATED: Friday, December 6th, 2024 at 3:05 AM
 vim:tw=80:ts=8:ft=help:fdm=marker
