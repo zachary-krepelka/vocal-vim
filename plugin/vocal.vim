@@ -1,11 +1,11 @@
 " FILENAME: vocal.vim
 " AUTHOR: Zachary Krepelka
 " DATE: Saturday, January 20th, 2024
+" ABOUT: An operator that talks to you
 " ORIGIN: https://github.com/zachary-krepelka/vocal-vim.git
-" DESCRIPTION: An operator that talks to you
-" UPDATED: Saturday, January 27th, 2024 at 9:15 PM
+" UPDATED: Tuesday, March 4th, 2025 at 1:25 AM
 
-" Variables {{{1
+" Loading {{{1
 
 if exists("g:loaded_vocal_vim")
 
@@ -14,6 +14,8 @@ if exists("g:loaded_vocal_vim")
 endif
 
 let g:loaded_vocal_vim = 1
+
+" Variables {{{1
 
 if !exists('g:speaker')
 
@@ -140,6 +142,8 @@ command -nargs=1 Speak :call Speak(<q-args>)
 nnoremap <expr> gs  Speak()
 xnoremap <expr> gs  Speak()
 nnoremap <expr> gss Speak() .. '_'
+
+nnoremap gS :exe 'sil !pkill' g:speaker<CR><C-L>
 
 " Menus {{{1
 

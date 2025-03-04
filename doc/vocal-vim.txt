@@ -103,7 +103,18 @@ This plugin provides one operator.
 
 			Vocalize the highlighted text.
 
-3.2 Commands~
+3.3 Mappings~
+
+This plugin provides one mapping.
+
+                                                                  *vocal-vim-gS*
+	gS
+
+			Terminate any active processes invoked by the
+			|vocal-vim-gs| operator. This has the effect of
+			silencing any speech currently in progress.
+
+3.3 Commands~
 
 This plugin provides one command.
                                                                         *:Speak*
@@ -112,7 +123,7 @@ This plugin provides one command.
 			Speak the string passed as an argument.
 			Quotes are not required.
 
-3.3 Functions~
+3.4 Functions~
 
 This plugin provides one function.
                                                                        *Speak()*
@@ -120,10 +131,10 @@ This plugin provides one function.
 
 			Speaks the string passed as an argument.
 
-3.4 Mnemonics~
+3.5 Mnemonics~
 
-Let us give our keybinding a meaningful designation.  The word 'Go' can be used
-as an imperative verb, e.g., 'Go and buy yourself a new dress.'  We can employ
+Let us give our keybinding a meaningful designation.  The word "Go" can be used
+as an imperative verb, e.g., "Go and buy yourself a new dress."  We can employ
 this usage of the word to devise a mnemonic for our new operator.
 
 	`gs`     --->   `G`o and `S`peak!
@@ -134,7 +145,7 @@ this usage of the word to devise a mnemonic for our new operator.
 
 	`gsip`   --->   `G`o `S`peak `I`nside `P`aragraph
 
-You may prefer the word `say` to `speak` -- whatever floats your boat.
+Conversly, `gS` could stand for "geez, Shush!"
 
 ================================================================================
 
@@ -172,9 +183,11 @@ Here are some things you could try:
 
 	- `[n]gsw` to speak the next `n` words.
 
-	- `gsf[!?.]` to speak a full sentence.
+	- `gs)` to speak a full sentence.
 
 	- Pretty much anything else you can imagine.
+
+	- Forget the poem! Vocalize the whole buffer with `gggsG`.
 
 ================================================================================
 
@@ -228,7 +241,7 @@ making my plugin portable when I have some spare time on my hands.
 
 6.3 An edge case with argument passing~
 
-You should not pass the words 'char', 'line', or 'block' verbatim to the
+You should not pass the words "char", "line", or "block" verbatim to the
 provided command and function; otherwise, undefined behavior will ensue.  This
 problem arises because I violate the single responsibility principle of computer
 programming.  A work-around is quoting the words with an additional space. >
@@ -245,12 +258,12 @@ dynamic.
 
 Two resources were particularly helpful in writing this plugin.
 
-	-  Vim's |map-operator| help page.
+	-  Vim's |:map-operator| help page.
 
 	- Chapter 29 of Igor Iriantio's 'Learn Vim the Smart Way'
 
 		https://github.com/iggredible/Learn-Vim
 
 ================================================================================
-UPDATED: Friday, December 6th, 2024 at 3:05 AM
+UPDATED: Tuesday, March 4th, 2025 at 2:07 AM
 vim:tw=80:ts=8:ft=help:fdm=marker
