@@ -145,7 +145,7 @@ this usage of the word to devise a mnemonic for our new operator.
 
 	`gsip`   --->   `G`o `S`peak `I`nside `P`aragraph
 
-Conversly, `gS` could stand for "geez, Shush!"
+Conversely, `gS` could stand for "geez, Shush!"
 
 ================================================================================
 
