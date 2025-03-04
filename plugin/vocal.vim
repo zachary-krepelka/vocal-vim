@@ -48,6 +48,13 @@ endif
 
 function! Speak(type = '') abort
 
+	if !executable(g:speaker)
+
+		echoerr g:speaker 'is not installed on the system'
+
+		return
+	endif
+
 	if a:type == ''
 
 		" Set up the function to receive a motion
