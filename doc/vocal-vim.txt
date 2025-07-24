@@ -15,12 +15,13 @@ Origin:   https://github.com/zachary-krepelka/vocal-vim
 
 TABLE OF CONTENTS 0                                    *vocal-vim-contents* {{{1
 
-1. Introduction ...................................... |vocal-vim-intro|
-2. Installation ...................................... |vocal-vim-install|
-3. Usage ............................................. |vocal-vim-usage|
-4. Example ........................................... |vocal-vim-example|
-5. Customization ..................................... |vocal-vim-customization|
-6. Remarks ........................................... |vocal-vim-remarks|
+1. Introduction ................................... |vocal-vim-intro|
+2. Installation ................................... |vocal-vim-install|
+3. Usage .......................................... |vocal-vim-usage|
+4. Example ........................................ |vocal-vim-example|
+5. Customization .................................. |vocal-vim-customization|
+6. Remarks ........................................ |vocal-vim-remarks|
+7. Acknowledgements ............................... |vocal-vim-acknowledgements|
 
 ================================================================================
 
@@ -265,5 +266,13 @@ Two resources were particularly helpful in writing this plugin.
 		https://github.com/iggredible/Learn-Vim
 
 ================================================================================
-UPDATED: Tuesday, March 4th, 2025 at 2:07 AM
+
+ACKNOWLEDGEMENTS  7                            *vocal-vim-acknowledgements* {{{1
+
+I would like to offer a very special thanks to GitHub user ku8zia for being the
+first to star my repository. This was my very first star on GitHub altogether.
+It means a lot to know that someone out there appreciates something I have made.
+
+================================================================================
+UPDATED: Thursday, July 24th, 2025 at 5:00 AM
 vim:tw=80:ts=8:ft=help:fdm=marker
